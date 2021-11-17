@@ -10,5 +10,5 @@ const API_PATH = '/updateActiveSessions';
  * CRON function that runs every 5 minutes
  */
 export const updateActiveSessionsCron = functions.pubsub
-  .schedule("every 1 minutes")
+  .schedule("every 24 hours")
   .onRun(async () => await runScheduledFunction({ path: API_PATH, env: 'prod' }));
