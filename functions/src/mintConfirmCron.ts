@@ -7,5 +7,5 @@ const API_PATH = '/mintConfirm';
  * CRON function that runs every 1 minute
  */
 export const mintConfirmCron = functions.pubsub
-  .schedule('every 24 hours')
+  .schedule('every 1 minutes')
   .onRun(async () => await runScheduledFunction({ path: API_PATH, env: 'prod' }));
