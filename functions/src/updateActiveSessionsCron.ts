@@ -7,7 +7,7 @@ import { runScheduledFunction } from "./lib/runScheduledFunction";
 const API_PATH = '/updateActiveSessions';
 
 /**
- * CRON function that runs every 5 minutes
+ * CRON function that runs every 1 minutes
  */
 export const updateActiveSessionsCron = functions.pubsub
   .schedule("every 1 minutes")
