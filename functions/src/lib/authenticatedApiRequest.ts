@@ -1,7 +1,7 @@
 import axios from "axios";
 import * as functions from "firebase-functions";
 
-export const authenticatedApiRequest = async <T>({ path, env }: { path: string, env: string }): Promise<T> => {
+export const authenticatedApiRequest = async <T>({ path, env, headers }: { path: string, env: string, headers: {} }): Promise<T> => {
     const { config } = functions.config();
     const { host, username, pass } = config[env]
 
@@ -12,7 +12,13 @@ export const authenticatedApiRequest = async <T>({ path, env }: { path: string, 
             Authorization: `Basic ${token}`
         }
     };
-
-    const response = await axios.post(url, {}, headers);
+    const response = await axios.post(
+        `${host}${path}`,
+        {},
+        { headers: { 
+            ...headers,
+            Authorization: `Basic ${token}` 
+        }}
+    );
     return response.data as T;
 };
