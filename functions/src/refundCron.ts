@@ -4,8 +4,8 @@ import { runScheduledFunction } from "./lib/runScheduledFunction";
 const API_PATH = '/refunds';
 
 /**
- * CRON function that runs every 25 hours
+ * CRON function that runs every 30 minutes
  */
-export const mintConfirmCron_dev = functions.pubsub
-  .schedule('every 25 hours')
+export const refundCron = functions.pubsub
+  .schedule('every 30 minutes')
   .onRun(async () => await runScheduledFunction({ path: API_PATH, env: 'prod' }));
