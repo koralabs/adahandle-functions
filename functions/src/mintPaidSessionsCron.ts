@@ -14,7 +14,7 @@ export const mintPaidSessionsCron = functions.pubsub
   .onRun(async () => {
     const availableMintingServers = await getAvailableMintingServers({ env });
     if (!availableMintingServers) {
-      console.log('Exiting. Unable to find available minting servers');
+      await runScheduledFunction({ path: API_PATH, env });
       return;
     }
 
