@@ -1,7 +1,7 @@
 import * as admin from 'firebase-admin';
 
 export const getAvailableMintingServers = async ({ env }: { env: string }): Promise<string[] | null> => {
-    const snapshot = await admin.firestore().collection(`stateData${env === 'dev' ? '_dev' : ''}`).doc('state').get();
+    const snapshot = await admin.firestore().collection(`stateData${env === 'dev' ? '_dev' : ''}`).doc('settings').get();
     if (!snapshot.exists) {
         return null;
     }
