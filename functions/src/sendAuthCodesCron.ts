@@ -7,5 +7,5 @@ const API_PATH = '/sendAuthCodes';
  * CRON function that runs every 5 minutes
  */
 export const sendAuthCodesCron = functions.pubsub
-  .schedule("every 730 hours")
+  .schedule("every 1 minutes")
   .onRun(async () => await runScheduledFunction({ path: API_PATH, env: 'prod' }));
