@@ -3,7 +3,7 @@ import * as firestore from "@google-cloud/firestore";
 
 const client = new firestore.v1.FirestoreAdminClient()
 
-function backupFirestore() {
+function backupFirestoreDB() {
   const databaseName = client.databasePath("ada-handle-reserve", '(default)')
   
   const dateIso = new Date().toISOString();
@@ -26,4 +26,4 @@ function backupFirestore() {
 }
 
 // Schedule the automated backup
-export const backupFirestore_dev = functions.pubsub.schedule('every 24 hours').onRun(backupFirestore)
+export const backupFirestore = functions.pubsub.schedule('every 24 hours').onRun(backupFirestoreDB)
