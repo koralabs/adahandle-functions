@@ -5,11 +5,11 @@ admin.initializeApp();
 /**
  * Production Crons
  */
-// export { mintPaidSessionsCron } from "./mintPaidSessionsCron";
-// export { mintConfirmCron } from "./mintConfirmCron";
-// export { sendAuthCodesCron } from "./sendAuthCodesCron";
-// export { updateActiveSessionsCron } from "./updateActiveSessionsCron";
-// export { saveStateCron } from "./saveStateCron";
+export { mintPaidSessionsCron } from "./mintPaidSessionsCron";
+export { mintConfirmCron } from "./mintConfirmCron";
+export { sendAuthCodesCron } from "./sendAuthCodesCron";
+export { updateActiveSessionsCron } from "./updateActiveSessionsCron";
+export { saveStateCron } from "./saveStateCron";
 // export { refundCron } from "./refundCron";
 export { backupFirestore } from "./backupFirestore";
 
